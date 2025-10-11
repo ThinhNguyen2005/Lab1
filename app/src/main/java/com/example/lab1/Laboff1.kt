@@ -30,7 +30,7 @@ fun PracticeScreen() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally//ngang
     ) {
         // Tiêu đề
         Text(
@@ -52,6 +52,7 @@ fun PracticeScreen() {
                     errorMessage = null // Xóa lỗi khi người dùng nhập lại
                 },
                 placeholder = { Text("Nhập vào số lượng") },
+
                 // Sử dụng singleLine để TextField gọn gàng hơn
                 singleLine = true,
                 modifier = Modifier

@@ -1,5 +1,6 @@
 package com.example.lab1
 
+import PracticeScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,9 +21,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // PracticeScreen()
-                    // ThucHanh1()
-                    ThucHanh2Home()
+//                     PracticeScreen()
+//                     ThucHanh1()
+//                    ThucHanh2Home()
+//                    tuan3_lab1off()
+                    tuan3_lab2off()
+
                 }
             }
         }

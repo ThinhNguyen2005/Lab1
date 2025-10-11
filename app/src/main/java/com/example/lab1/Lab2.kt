@@ -37,7 +37,7 @@ fun ThucHanh2Home(){
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold
         )
-        
+
         OutlinedTextField(
             value = emailPublic,
             onValueChange = { newValue ->
@@ -45,14 +45,15 @@ fun ThucHanh2Home(){
                 checkmail = null
             },
             placeholder = { Text("Nhập vào email của bạn") },
+
             singleLine = true,
             modifier = Modifier
                 .width(300.dp)
                 .height(56.dp)
         )
-        
+
         Spacer(modifier = Modifier.height(24.dp))
-        
+
         Button(
             onClick = {
                 if (checkEmail(emailPublic.text) && emailPublic.text.isNotEmpty()) {
@@ -64,9 +65,9 @@ fun ThucHanh2Home(){
         ) {
             Text("Kiểm tra")
         }
-        
+
         Spacer(modifier = Modifier.height(24.dp))
-        
+
         checkmail?.let { msg ->
             Text(
                 text = msg,

@@ -9,43 +9,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@Preview
 @Composable
 fun ThucHanh1() {
     var inputName by remember { mutableStateOf(TextFieldValue("")) }
     var inputAge by remember { mutableStateOf(TextFieldValue("")) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top // Căn các phần tử từ trên xuống
-    ) {
-        Text(
-            text = "THỰC HÀNH 01",
-            modifier = Modifier.padding(top = 60.dp, bottom = 32.dp),
-            style = MaterialTheme.typography.headlineLarge,
-            fontWeight = FontWeight.Bold
-        )
 
-        // Khung xám chứa các ô nhập liệu
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFF0F0F0) // Màu xám nhạt
-            ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp) // Bỏ bóng đổ
-        ) {
+
+
+
             Column(
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 32.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp) // Khoảng cách giữa các hàng
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally//ngang
             ) {
+                Text(
+                    text = "THỰC HÀNH 01",
+                    modifier = Modifier.padding(top = 60.dp, bottom = 32.dp),
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontWeight = FontWeight.Bold
+
+                )
                 // Hàng "Họ và tên"
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -64,7 +54,7 @@ fun ThucHanh1() {
                         },
                         placeholder = { Text("Nhập tên của bạn") },
 
-                        shape = RoundedCornerShape(8.dp),
+                        shape = RoundedCornerShape(8.dp),//bo tròn
                         colors = OutlinedTextFieldDefaults.colors(
                             unfocusedBorderColor = Color.Transparent,
                             focusedBorderColor = MaterialTheme.colorScheme.primary,
@@ -74,8 +64,8 @@ fun ThucHanh1() {
                         modifier = Modifier.weight(1f)
                     )
                 }
+                Spacer(modifier = Modifier.height(16.dp))
 
-                // Hàng "Tuổi"
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()
@@ -95,52 +85,49 @@ fun ThucHanh1() {
 
                         shape = RoundedCornerShape(8.dp),
                         colors = OutlinedTextFieldDefaults.colors(
-                            unfocusedBorderColor = Color.Transparent,
-                            focusedBorderColor = MaterialTheme.colorScheme.primary,
+                            unfocusedBorderColor = Color.Transparent,//Khi người dùng không tương tác (không bấm vào) ô nhập liệu, đường viền của nó sẽ trong suốt (tàng hình).
+                            focusedBorderColor = MaterialTheme.colorScheme.primary,//Khi người dùng bấm vào và đang nhập liệu trong ô này, đường viền sẽ chuyển sang màu primary
                             unfocusedContainerColor = Color.White,
                             focusedContainerColor = Color.White
                         ),
                         modifier = Modifier.weight(1f)
                     )
                 }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        // Nút "Kiểm tra"
-        Button(
-            onClick = {
-                val input = inputAge.text.trim()
-                if (input.isEmpty() || !input.all { it.isDigit() }) {
-                    errorMessage = "Dữ liệu của bạn nhập không hợp lệ."
-                } else {
-                    val age = input.toInt()
-                    when {
-                        age in 2..6 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Trẻ em."
-                        age >= 65 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Người già."
-                        age in 7..64 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Người lớn."
-                        age < 2 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Em bé."
-                        else -> errorMessage = null
-                    }
+                Spacer(modifier = Modifier.height(32.dp))
+                Button(
+                    onClick = {
+                        val input = inputAge.text.trim()
+                        if (input.isEmpty() || !input.all { it.isDigit() }) {
+                            errorMessage = "Dữ liệu của bạn nhập không hợp lệ."
+                        } else {
+                            val age = input.toInt()
+                            when {
+                                age in 2..6 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Trẻ em."
+                                age >= 65 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Người già."
+                                age in 7..64 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Người lớn."
+                                age < 2 -> errorMessage = "Bạn tên ${inputName.text.trim()}, ${inputAge.text.trim()} tuổi, là Em bé."
+                                else -> errorMessage = null
+                            }
+                        }
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 48.dp)
+                        .height(50.dp)
+                ) {
+                    Text("Kiểm tra")
                 }
-            },
-            shape = RoundedCornerShape(8.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 48.dp)
-                .height(50.dp)
-        ) {
-            Text("Kiểm tra")
-        }
 
-        // Hiển thị thông báo lỗi (nếu có)
-        errorMessage?.let { msg ->
-            Text(
-                text = msg,
-                color = Color.Red,
-                modifier = Modifier.padding(top = 24.dp)
-            )
-        }
+                // Hiển thị thông báo lỗi (nếu có)
+                errorMessage?.let { msg ->
+                    Text(
+                        text = msg,
+                        color = Color.Red,
+                        modifier = Modifier.padding(top = 24.dp)
+                    )
+                }
+            }
+
     }
-}
+
