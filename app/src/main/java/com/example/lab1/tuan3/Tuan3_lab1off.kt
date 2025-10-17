@@ -1,10 +1,7 @@
-package com.example.lab1
+package com.example.lab1.tuan3
 
-import android.os.Message
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -14,20 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.core.app.NotificationCompat
 
 @Composable
-fun tuan3_lab1off(){
-    var textColor by remember { mutableStateOf(Color.Unspecified) } // Ban đầu không xác định màu
+fun Tuan3_lab1off(){
+    var textColor by remember { mutableStateOf(Color.Black) }
 
-    // Lấy màu mặc định của text từ theme
-    val defaultTextColor = LocalContentColor.current
-    if (textColor == Color.Unspecified) {
-        textColor = defaultTextColor
-    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -65,5 +55,12 @@ fun tuan3_lab1off(){
             Text("Say hi!")
         }
 
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun Tuan3_lab1offPreview() {
+    MaterialTheme {
+        Tuan3_lab1off()
     }
 }

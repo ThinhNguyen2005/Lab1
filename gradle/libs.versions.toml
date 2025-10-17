@@ -1,5 +1,5 @@
 [versions]
-agp = "8.12.3"
+agp = "8.13.0"
 kotlin = "2.2.20"
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -13,6 +13,10 @@ cardview = "1.0.0"
 composeBom = "2025.09.01"
 composeMaterial3 = "1.4.0"
 composeBomVersion = "2025.09.01"
+uiGraphics = "1.9.3"
+inkBrush = "1.0.0-alpha07"
+kotlinxSerializationJson = "1.8.1"
+navigationCompose = "2.9.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +33,10 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+androidx-ink-brush = { group = "androidx.ink", name = "ink-brush", version.ref = "inkBrush" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name ="kotlinx-serialization-json", version = "kotlinxSerializationJson" }
+androidx-navigation-compose = { group = "androidx.navigation", name ="navigation-compose", version.ref = "navigationCompose" }
 
 
 [plugins]
@@ -36,5 +44,7 @@ org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.re
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
 
 

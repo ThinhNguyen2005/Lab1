@@ -1,5 +1,6 @@
-package com.example.lab1
+package com.example.lab1.tuan1
 
+import PracticeScreen
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -131,3 +132,8 @@ fun ThucHanh1() {
 
     }
 
+@Preview(showBackground = true)
+@Composable
+fun ThucHanh1Preview(){
+    ThucHanh1()
+}
